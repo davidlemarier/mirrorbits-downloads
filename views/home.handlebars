@@ -1,1 +1,116 @@
-{{result}}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Popcorn Time - Watch movies and TV shows instantly!</title>
+    <!-- Use latest IE Engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Metadata -->
+    <meta http-equiv="refresh" content="5;URL='{{mirror.OfficialURL}}'" />
+
+    <link href="https://popcorntime.io/css/main.min.css" media="all" rel="stylesheet" type="text/css">
+</head>
+
+<body lang="en" id="page-faq" class="beta">
+    <section id="header">
+        <nav class="fixed-width">
+            <a href="https://popcorntime.io/"><h1 id="logo">Popcorn Time</h1></a>
+            <ul class="social align-right">
+                <li><a href="http://blog.popcorntime.io/" target="_blank" class="blog">Blog</a></li>
+                <li><a href="http://discuss.popcorntime.io/" target="_blank" class="discourse">Forum</a></li>
+                <li><a href="https://twitter.com/popcorntimetv" target="_blank" class="twitter">Twitter</a></li>
+                <li><a href="https://www.facebook.com/PopcornTimeTv" target="_blank" class="facebook">Facebook</a></li>
+                <li><a href="https://git.popcorntime.io/" target="_blank" class="stash">Stash</a></li>
+            </ul>
+
+            <ul class="align-left">
+                <li class="text"><a href="https://popcorntime.io/faq">FAQ</a></li>
+                <li class="text"><a href="https://popcorntime.io/tos">TOS</a></li>
+            </ul>
+
+            <div class="align-left facebook-widget">
+                <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fpopcorntime.io&amp;width&amp;layout=button&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=159481197468524" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+            </ul>
+        </nav>
+    </section>
+
+
+    <div class="container" >
+
+        <section id="faq" class="fixed-width" style="text-align:center">
+            <div class="warning" style="">
+                <img src="https://popcorntime.io/images/icon-warning.svg" alt="Warning!">
+                <h5 data-i18n="warning.whatitdoes">Popcorn Time streams movies and TV shows from torrents</h5>
+                <p data-i18n="warning.copyright">
+                    Downloading copyrighted material may be illegal in your country. Use at your own risk.
+                </p>
+            </div>
+
+            <div style="margin-top:50px">
+                <h1>{{fileName}}</h1>
+
+                <ul id="links">
+                    <li class="download">
+                        <a href="#" class="btn-main">Thanks! Your download will start in <span id="counter">5</span> seconds...</a><br />
+                        {{#if mirrors}}
+                            <small><a style="color:#000!important" href="#" id="alt_link">If you have a problem, click here. </a></small>
+                        {{/if}}
+                    </li>
+                </ul>
+                <p>
+                    SHA-1 checksum: {{sha1}}
+                </p>
+
+                <div id="alt_links" style="display: none">
+                    <h3>Available Mirrors</h3>
+                    <ul style="list-style:none">
+                        {{#each mirrors}}
+                            <li><a href="{{OfficialURL}}">{{OfficialURL}}</a></li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section id="footer" style="position:absolute;bottom:0px">
+        <nav class="clear-fix">
+            <a href="https://popcorntime.io/" class="logo">Popcorn time</a><ul class="social">
+                <li><a href="https://popcorntime.io/" target="_blank" class="popcorn">Popcorn Time</a></li>
+                <li><a href="http://blog.popcorntime.io/" target="_blank" class="blog">Blog</a></li>
+                <li><a href="http://discuss.popcorntime.io/" target="_blank" class="discourse">Forum</a></li>
+                <li><a href="https://twitter.com/popcorntimetv" target="_blank" class="twitter">Twitter</a></li>
+                <li><a href="https://www.facebook.com/PopcornTimeTv" target="_blank" class="facebook">Facebook</a></li>
+                <li><a href="https://git.popcorntime.io/" target="_blank" class="stash">Stash</a></li>
+
+            </ul>
+        </nav>
+
+        <footer>
+            <hr><p>Made with <span>❤</span> by a bunch of geeks from All Around The World</p><small><a id="status" data-i18n="footer.faq" href="http://status.popcorntime.io/" target="_blank" class="none">Status</a> — <a data-i18n="footer.tos" href="https://popcorntime.io/tos">Terms of Service</a> — <a data-i18n="footer.faq" href="https://popcorntime.io/faq">FAQ</a></small>
+        </footer>
+    </section>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+
+    <script language="javascript">
+        $(function(){
+          var count = 4;
+          countdown = setInterval(function(){
+            jQuery("#counter").html(count);
+            if (count == 0) {
+                clearInterval(countdown);
+            }
+            count--;
+          }, 1000);
+        });
+        $(document).ready(function() {
+            $('#alt_link').click(function(e) {
+                e.preventDefault();
+                $('#alt_links').toggle();
+            });
+        });
+    </script>
+</body>
+</html>
