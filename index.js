@@ -3,7 +3,7 @@ var exphbs = require('express3-handlebars');
 var request = require('request');
 var _ = require('lodash');
 
-var backend = 'http://get.popcorntime.io:8080';
+var backend = 'http://localhost:8080';
 
 hbs = exphbs.create({
     // Specify helpers which are only registered on this instance.
