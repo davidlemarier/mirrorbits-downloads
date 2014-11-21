@@ -1,0 +1,17 @@
+{
+  "name": "popcorn-downloads",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.10.2",
+    "express3-handlebars": "^0.5.2",
+    "lodash": "^2.4.1",
+    "request": "^2.48.0"
+  }
+}
